@@ -9,15 +9,11 @@ const Dictaphone = () => {
     return <span>{`Browser doesn't support speech recognition.`}</span>;
   }
 
-  const startListening = () => {
-    SpeechRecognition.startListening({ language: 'vn-VN' });
-  };
-
   return (
     <div>
       <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button onClick={startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={() => SpeechRecognition.startListening()}>Start</button>
+      <button onClick={() => SpeechRecognition.stopListening()}>Stop</button>
       <button onClick={resetTranscript}>Reset</button>
       <p>{transcript}</p>
     </div>
